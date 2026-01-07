@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-  secret: 'iLikeToRapeNiggas',
+  secret: 'HASH LOGIN',
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -114,3 +114,4 @@ app.get('/logout', (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
