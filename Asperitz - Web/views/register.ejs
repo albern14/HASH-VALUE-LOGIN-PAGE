@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- FontAwesome for icons -->
+</head>
+<body>
+  <div class="container">
+    <h1>Register</h1>
+
+    <% if (errors && errors.length > 0) { %>
+      <ul class="error-list">
+        <% errors.forEach(function(error){ %>
+          <li><%= error %></li>
+        <% }); %>
+      </ul>
+    <% } %>
+
+    <form action="/register" method="POST">
+      <label>Email:</label>
+      <input type="email" name="email" value="<%= email %>" required />
+
+      <label>Password:</label>
+      <input type="password" id="passwordField" name="password" required />
+
+      <div class="requirements-box">
+        <p class="requirements-title">Your password must contain:</p>
+        <div class="requirements">
+          <div id="reqLength" class="requirement not-met">
+            <span class="check-icon">❌</span> At least 8 characters
+          </div>
+          <div id="reqUpper" class="requirement not-met">
+            <span class="check-icon">❌</span> At least one uppercase letter
+          </div>
+          <div id="reqNumber" class="requirement not-met">
+            <span class="check-icon">❌</span> At least one number
+          </div>
+          <div id="reqSymbol" class="requirement not-met">
+            <span class="check-icon">❌</span> At least one symbol
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button type="submit">Register</button>
+        <button type="button" id="generatePassword" class="icon-button">
+          <i class="fas fa-key"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/password-check.js"></script>
+  <script src="/generate-password.js"></script>
+</body>
+</html>

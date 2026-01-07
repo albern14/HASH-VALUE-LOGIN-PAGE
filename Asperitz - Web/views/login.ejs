@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Log In</h1>
+
+    <% if (errors && errors.length > 0) { %>
+      <ul class="error-list">
+        <% errors.forEach(function(error){ %>
+          <li><%= error %></li>
+        <% }); %>
+      </ul>
+    <% } %>
+
+    <form action="/login" method="POST">
+      <label>Email:</label>
+      <input type="email" name="email" required />
+
+      <label>Password:</label>
+      <input type="password" name="password" required />
+
+      <div class="button-row">
+        <button type="submit">Log In</button>
+      </div>
+    </form>
+
+    <div class="link">
+      <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
+  </div>
+</body>
+</html>
